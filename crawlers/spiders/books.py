@@ -7,6 +7,7 @@ Created on Wed Jul 15 10:38:42 2020
 
 import scrapy
 import re
+import pkgutil
 
 #%%
 """
@@ -31,7 +32,7 @@ class BooksSpider(scrapy.Spider):
 #%%
 class BooksSpider(scrapy.Spider):
     name = "books"
-    start_urls = open('misc/urls.txt', 'r').readlines()
+    start_urls = pkgutil.get_data('project', 'misc/urls.txt')
     ratingsDict = {
         'One': 1,
         'Two': 2,
